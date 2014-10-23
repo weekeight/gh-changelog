@@ -9,13 +9,13 @@ program
 	.version('1.0.0')
 	.option('-u, --user [type]', 'repo of user, required')
 	.option('-r, --repo [type]', 'user\'s repo, required')
-	.option('-n, --loginname [type]', 'your username on github, optional.once you get a "rate limit" error, you must provide them.')
-	.option('-p, --loginpassword [type]', 'your password on github, optional.once you get a "rate limit" error, you must provide them.')
-	.option('-f, --mdfilepath [type]', 'position of the markdown file, optional')
+	.option('-n, --loginname [type]', 'your username on github, optional. Once you get a "rate limit" error, you must provide it.')
+	.option('-p, --loginpassword [type]', 'your password on github, optional. Once you get a "rate limit" error, you must provide it.')
+	.option('-f, --mdfilepath [type]', 'position of the markdown file, optional. default : changelog.md')
 	.parse(process.argv);
 
-if(!program.user || !program.repo || !program.loginname || !program.loginpassword){
-	console.log('One of these arguments is missing : user, repo, loginname, loginpassword');
+if(!program.user || !program.repo){
+	console.log('One of these arguments is missing : user, repo');
 	return;
 }
 if(!program.mdfilepath){

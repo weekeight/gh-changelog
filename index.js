@@ -140,13 +140,6 @@ function getEachChangeLogContent(changeLogItem){
     }
     return itemContent;
 }
-// getChangeLog({
-//     user : 'kissyteam',
-//     repo : 'kissy',
-//     loginUserName : 'weekeight',
-//     loginPassword : 'huhua0418',
-//     mdFilePath : './his.md'
-// });
 module.exports = {
     getChangeLog : getChangeLog,
     getChangeLogData : getChangeLogData
