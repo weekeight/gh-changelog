@@ -6,7 +6,6 @@ generate github changelog into markdown file
 ##Install
 
 	npm install gh-changelog -g
-	npm install
 
 ##Command Line
 
