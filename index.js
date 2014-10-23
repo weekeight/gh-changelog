@@ -58,7 +58,6 @@ function getMileStones(opts,callback){
             'User-Agent' : 'weekeight'
         }
     }
-    debugger;
     opts.state = opts.state || 'all';
     opts.url = 'https://api.github.com/repos/' + opts.user + '/' + opts.repo + '/milestones?state=' + opts.state + '&username=weekeight&password=huhua0418';
    request.get(opts, function(err, res, body){
