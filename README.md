@@ -20,7 +20,7 @@ use in basic authentication because of github api [rate limit](https://developer
 ##Use Api
 
 	var ghChangeLog = require('gh-changelog');
-	ghChangelog.getChangeLog({
+	ghChangeLog.getChangeLog({
 		user : 'kissyteam',
 		repo : 'kissy',
 		mdFilePath : './changelog.md',
@@ -29,7 +29,7 @@ use in basic authentication because of github api [rate limit](https://developer
 	});
 	
 	//or you can get the changelog data and output changelog whatever format you prefer
-	ghChangelog.getChangeLogData({
+	ghChangeLog.getChangeLogData({
 		user : 'kissyteam',
 		repo : 'kissy',
 		loginUserName : 'exampleName',  //optional,unless you get rate limit error
