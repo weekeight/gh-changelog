@@ -21,7 +21,6 @@ if(!program.user || !program.repo){
 if(!program.mdfilepath){
 	program.mdfilepath = path.resolve(process.cwd(), 'changelog.md');
 }
-debugger;
 ghLog.getChangeLog({
 	user : program.user,
     repo : program.repo,

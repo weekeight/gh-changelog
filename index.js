@@ -70,6 +70,10 @@ function getMileStones(opts,callback){
 }
 
 function getIssuesFromAllMileStones(opts, allMileStones){
+    if(!allMileStones.length){
+        console.log('This repotory has no milestone...');
+        return;
+    }
     for(var i = 0; i < allMileStones.length; i++){
         var milestone = allMileStones[i],
             number = milestone.number;
@@ -118,7 +122,7 @@ function afterGetEachMileStone(i, totalLenght){
 }
 
 function createMDFile(){
-    var mdFilePath = path.resolve(process.cwd(), config.mdFilePath);
+    var mdFilePath = path.resolve(config.mdFilePath);
     var mdContent = '';
     for(var i = changeLogData.length - 1; i >= 0 ; i--){
         mdContent += getEachChangeLogContent(changeLogData[i]);
