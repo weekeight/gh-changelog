@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+
+var path = require('path');
+var program = require('commander');
+
+var ghLog = require('../index');
+
+program
+	.version('1.0.0')
+	.option('-u, --user [type]', 'repo of user, required')
+	.option('-r, --repo [type]', 'user\'s repo, required')
+	.option('-n, --loginname [type]', 'your username on github, optional.once you get a "rate limit" error, you must provide them.')
+	.option('-p, --loginpassword [type]', 'your password on github, optional.once you get a "rate limit" error, you must provide them.')
+	.option('-f, --mdfilepath [type]', 'position of the markdown file, optional')
+	.parse(process.argv);
+
+if(!program.user || !program.repo || !program.loginname || !program.loginpassword){
+	console.log('One of these arguments is missing : user, repo, loginname, loginpassword');
+	return;
+}
+if(!program.mdfilepath){
+	program.mdfilepath = path.resolve(process.cwd(), 'changelog.md');
+}
+debugger;
+ghLog.getChangeLog({
+	user : program.user,
+    repo : program.repo,
+    loginUserName : program.loginname,
+    loginPassword : program.loginpassword,
+    mdFilePath : program.mdfilepath
+});

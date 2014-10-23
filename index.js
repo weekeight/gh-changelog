@@ -44,13 +44,21 @@ function getChangeLogData(cfg, callback){
 }
 
 function getMileStones(opts,callback){
-    var basic = new Buffer(opts.loginUserName + ':' + opts.loginPassword, 'ascii').toString('base64');
-    opts.headers = {
-        accept: "application/vnd.github.beta+json",
-        authorization: "Basic " + basic,
-        host: "api.github.com",
-        'user-agent': "NodeJS HTTP Client"
-    };
+    if(opts.loginUserName && opts.loginPassword){
+        var basic = new Buffer(opts.loginUserName + ':' + opts.loginPassword, 'ascii').toString('base64');
+        opts.headers = {
+            accept: "application/vnd.github.beta+json",
+            authorization: "Basic " + basic,
+            host: "api.github.com",
+            'user-agent': "NodeJS HTTP Client"
+        };
+    }else{
+        console.log('you didn\'t provide your username and password on github, once you get a "rate limit" error, you must provide them.');
+        opts.headers = {
+            'User-Agent' : 'weekeight'
+        }
+    }
+    debugger;
     opts.state = opts.state || 'all';
     opts.url = 'https://api.github.com/repos/' + opts.user + '/' + opts.repo + '/milestones?state=' + opts.state + '&username=weekeight&password=huhua0418';
    request.get(opts, function(err, res, body){
@@ -132,7 +140,13 @@ function getEachChangeLogContent(changeLogItem){
     }
     return itemContent;
 }
-
+// getChangeLog({
+//     user : 'kissyteam',
+//     repo : 'kissy',
+//     loginUserName : 'weekeight',
+//     loginPassword : 'huhua0418',
+//     mdFilePath : './his.md'
+// });
 module.exports = {
     getChangeLog : getChangeLog,
     getChangeLogData : getChangeLogData
