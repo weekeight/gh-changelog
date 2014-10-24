@@ -141,7 +141,7 @@ function getEachChangeLogContent(changeLogItem){
         var issueItem = issues[i];
         itemContent += '- ' + '[' + issueItem.number + '](' + issueItem.html_url + ') ' + escapeHtml(issueItem.title) + '   ([@' + issueItem.user.login + '](' + issueItem.user.html_url + '))\n';  
     }
-    return itemContent;
+    return itemContent + '\n';
 }
 module.exports = {
     getChangeLog : getChangeLog,
