@@ -136,10 +136,10 @@ function getEachChangeLogContent(changeLogItem){
     var milestone = changeLogItem.milestone,
         issues = changeLogItem.issues,
         itemContent = '';
-    itemContent += '#' + escapeHtml(milestone.title) + ' / (' + milestone.created_at.substring(0,10) + ')\n\n';
+    itemContent += '#v' + escapeHtml(milestone.title) + ' (' + milestone.created_at.substring(0,10) + ')\n\n';
     for(var i = 0; i < issues.length; i++){
         var issueItem = issues[i];
-        itemContent += '- ' + '[' + issueItem.number + '](' + issueItem.html_url + ') ' + escapeHtml(issueItem.title) + '   ([@' + issueItem.user.login + '](' + issueItem.user.html_url + '))\n';  
+        itemContent += '- ' + '[\#' + issueItem.number + '](' + issueItem.html_url + ') ' + escapeHtml(issueItem.title) + '   ([@' + issueItem.user.login + '](' + issueItem.user.html_url + '))\n';  
     }
     return itemContent + '\n';
 }
