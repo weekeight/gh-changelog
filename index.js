@@ -59,7 +59,7 @@ function getMileStones(opts,callback){
         }
     }
     opts.state = opts.state || 'all';
-    opts.url = 'https://api.github.com/repos/' + opts.user + '/' + opts.repo + '/milestones?state=' + opts.state + '&username=weekeight&password=huhua0418';
+    opts.url = 'https://api.github.com/repos/' + opts.user + '/' + opts.repo + '/milestones?state=' + opts.state + '&username=bentest0418&password=test1234';
    request.get(opts, function(err, res, body){
         if(!err && res.statusCode === 200){
             callback(opts, JSON.parse(body));
